@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Novak Sport Stringing Cards</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                background-color: #f0f0f0;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .page {
+                width: 21cm;
+                height: 29.7cm;
+                background: white;
+                padding-top: 0.35cm; /* Center vertically on A4 */
+                display: flex;
+                flex-wrap: wrap;
+                align-content: flex-start;
+            }
+
+            .card {
+                width: 10.5cm;
+                height: 14.5cm;
+                border: 1px dashed #ccc; /* Cut line */
+                padding: 0.6cm;
+                display: flex;
+                flex-direction: column;
+                background: #fff;
+                gap: 0.25cm;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 0.2cm;
+            }
+
+            .logo-text {
+                font-weight: 900;
+                font-size: 14pt;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .logo-icon {
+                font-size: 22pt;
+                font-weight: 900;
+                font-style: italic;
+                letter-spacing: -2px;
+            }
+
+            .title {
+                font-size: 12pt;
+                font-weight: 900;
+                text-align: right;
+                text-transform: uppercase;
+                line-height: 1.1;
+            }
+
+            .label {
+                font-size: 7.5pt;
+                font-weight: bold;
+                margin-bottom: 2px;
+                text-transform: uppercase;
+            }
+
+            .box {
+                border: 1px solid #000;
+                width: 100%;
+            }
+
+            .row {
+                display: flex;
+                gap: 0.4cm;
+            }
+
+            .col-left {
+                flex: 1.2;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .col-right {
+                flex: 0.8;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .simple-box {
+                height: 1cm;
+            }
+
+            .tension-container {
+                border: 1px solid #000;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+
+            .t-row {
+                display: flex;
+                flex: 1;
+            }
+
+            .t-row:first-child {
+                border-bottom: 1px solid #000;
+            }
+
+            .t-label {
+                width: 45%;
+                border-right: 1px solid #000;
+                font-size: 7pt;
+                font-weight: bold;
+                padding: 4px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .t-label span {
+                font-size: 5.5pt;
+                font-weight: normal;
+            }
+
+            .t-input {
+                flex: 1;
+            }
+
+            .notes-box {
+                height: 3.2cm;
+            }
+            .price-box {
+                height: 0.9cm;
+                margin-bottom: 0.2cm;
+            }
+            .date-box {
+                height: 0.9cm;
+            }
+
+            /* Footer */
+            .footer-section {
+                margin-top: auto;
+                text-align: center;
+            }
+
+            .strung-by-box {
+                height: 0.9cm;
+            }
+
+            @media print {
+                body {
+                    background-color: white;
+                }
+                .page {
+                    box-shadow: none;
+                }
+                @page {
+                    size: A4 portrait;
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="card">
+
+                <div class="header">
+                    <div class="logo-text">
+                        <span class="logo-icon">NS</span>
+                        <div>NOVAK<br />SPORT</div>
+                    </div>
+                    <div class="title">String Service</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-left">
+                        <div class="label">Name</div>
+                        <div class="box simple-box"></div>
+                    </div>
+                    <div class="col-right">
+                        <div class="label">Surname</div>
+                        <div class="box simple-box"></div>
+                    </div>
+                </div>
+
+                <div class="row" style="height: 2.2cm">
+                    <div class="col-left">
+                        <div class="label">String Type</div>
+                        <div class="box simple-box"></div>
+                    </div>
+                    <div class="col-right">
+                        <div class="label">Tension</div>
+                        <div class="tension-container">
+                            <div class="t-row">
+                                <div class="t-label">MAIN</div>
+                                <div class="t-input"></div>
+                            </div>
+                            <div class="t-row">
+                                <div class="t-label">CROSS</div>
+                                <div class="t-input"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-left">
+                        <div class="label">Poznámky / Notes</div>
+                        <div class="box notes-box"></div>
+                    </div>
+                    <div class="col-right">
+                        <div>
+                            <div class="label">Cena / Price</div>
+                            <div class="box price-box"></div>
+                        </div>
+                        <div style="margin-top: auto">
+                            <div class="label">Dátum / Date</div>
+                            <div class="box date-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <div class="label">Strung by:</div>
+                    <div class="box strung-by-box"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

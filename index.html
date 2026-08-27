@@ -46,9 +46,9 @@
                 height: 29.7cm;
                 background: white;
                 padding-top: 0.35cm; /* Center vertically on A4 */
-                display: flex;
-                flex-wrap: wrap;
-                align-content: flex-start;
+                display: grid;
+                grid-template-columns: repeat(2, 10.5cm);
+                grid-template-rows: repeat(2, 14.5cm);
             }
 
             .card {
@@ -297,5 +297,13 @@
                 </div>
             </div>
         </div>
+        <script>
+            const page = document.querySelector(".page");
+            const cardTemplate = page.querySelector(".card");
+
+            for (let cardNumber = 1; cardNumber < 4; cardNumber += 1) {
+                page.appendChild(cardTemplate.cloneNode(true));
+            }
+        </script>
     </body>
 </html>

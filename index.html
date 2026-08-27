@@ -15,8 +15,30 @@
             body {
                 background-color: #f0f0f0;
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
+            }
+
+            .toolbar {
+                width: 21cm;
+                padding: 0.35cm 0;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .print-button {
+                border: 0;
+                background: #111;
+                color: #fff;
+                padding: 8px 14px;
+                font-size: 10pt;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .print-button:hover {
+                background: #333;
             }
 
             .page {
@@ -83,6 +105,22 @@
                 width: 100%;
             }
 
+            input.box,
+            textarea.box {
+                display: block;
+                border-radius: 0;
+                color: #000;
+                background: #fff;
+                font: inherit;
+                padding: 4px;
+            }
+
+            input.box:focus,
+            textarea.box:focus {
+                outline: 2px solid #555;
+                outline-offset: -2px;
+            }
+
             .row {
                 display: flex;
                 gap: 0.4cm;
@@ -142,6 +180,7 @@
 
             .notes-box {
                 height: 3.2cm;
+                resize: none;
             }
             .price-box {
                 height: 0.9cm;
@@ -165,6 +204,9 @@
                 body {
                     background-color: white;
                 }
+                .toolbar {
+                    display: none;
+                }
                 .page {
                     box-shadow: none;
                 }
@@ -176,6 +218,9 @@
         </style>
     </head>
     <body>
+        <div class="toolbar">
+            <button class="print-button" type="button" onclick="window.print()">Print / Save as PDF</button>
+        </div>
         <div class="page">
             <div class="card">
 
@@ -190,29 +235,29 @@
                 <div class="row">
                     <div class="col-left">
                         <div class="label">Surname</div>
-                        <div class="box simple-box"></div>
+                        <input class="box simple-box" type="text" aria-label="Surname" />
                     </div>
                     <div class="col-right">
                         <div class="label">Name</div>
-                        <div class="box simple-box"></div>
+                        <input class="box simple-box" type="text" aria-label="Name" />
                     </div>
                 </div>
 
                 <div class="row" style="height: 2.2cm">
                     <div class="col-left">
                         <div class="label">String Type</div>
-                        <div class="box simple-box"></div>
+                        <input class="box simple-box" type="text" aria-label="String type" />
                     </div>
                     <div class="col-right">
                         <div class="label">Tension</div>
                         <div class="tension-container">
                             <div class="t-row">
                                 <div class="t-label">MAIN</div>
-                                <div class="t-input"></div>
+                                <input class="t-input" type="text" aria-label="Main tension" />
                             </div>
                             <div class="t-row">
                                 <div class="t-label">CROSS</div>
-                                <div class="t-input"></div>
+                                <input class="t-input" type="text" aria-label="Cross tension" />
                             </div>
                         </div>
                     </div>
@@ -221,23 +266,25 @@
                 <div class="row">
                     <div class="col-left">
                         <div class="label">Notes</div>
-                        <div class="box notes-box"></div>
+                        <textarea class="box notes-box" aria-label="Notes"></textarea>
                     </div>
                     <div class="col-right">
                         <div>
                             <div class="label">Price</div>
-                            <div class="box price-box"></div>
+                            <input class="box price-box" type="text" aria-label="Price" />
+                            <!-- TODO: Add euro sign -->
                         </div>
                         <div style="margin-top: auto">
                             <div class="label">Date</div>
-                            <div class="box date-box"></div>
+                            <input class="box date-box" type="text" aria-label="Date" />
+                            <!-- TODO: Add date formatting -->
                         </div>
                     </div>
                 </div>
 
                 <div class="footer-section">
                     <div class="label">Strung by:</div>
-                    <div class="box strung-by-box"></div>
+                    <input class="box strung-by-box" type="text" aria-label="Strung by" />
                 </div>
             </div>
         </div>

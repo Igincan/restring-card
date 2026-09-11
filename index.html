@@ -192,32 +192,10 @@
                 resize: none;
             }
 
-            .currency-wrap {
-                display: flex;
-                align-items: center;
-                border: 1px solid #000;
-                background: #fff;
+            .price-box {
                 width: 100%;
                 height: 0.9cm;
                 margin-bottom: 0.2cm;
-            }
-
-            .currency-sign {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 0.8cm;
-                height: 100%;
-                border-right: 1px solid #000;
-                font-size: 10pt;
-                font-weight: bold;
-                background: #f8f8f8;
-            }
-
-            .price-box {
-                height: 100%;
-                border: 0;
-                flex: 1;
                 padding: 0 6px;
             }
 
@@ -278,6 +256,13 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-left" style="flex: 1;">
+                        <div class="label">Phone Number</div>
+                        <input class="box simple-box" type="tel" aria-label="Phone Number" />
+                    </div>
+                </div>
+
                 <div class="row" style="height: 2.2cm">
                     <div class="col-left">
                         <div class="label">String Type</div>
@@ -306,14 +291,11 @@
                     <div class="col-right">
                         <div>
                             <div class="label">Price</div>
-                            <div class="currency-wrap">
-                                <span class="currency-sign">€</span>
-                                <input class="price-box" type="text" inputmode="decimal" aria-label="Price" placeholder="0.00" />
-                            </div>
+                            <input class="box price-box" type="text" inputmode="decimal" aria-label="Price" />
                         </div>
                         <div style="margin-top: auto">
                             <div class="label">Date</div>
-                            <input class="box date-box" type="text" aria-label="Date" placeholder="dd/mm/yyyy" />
+                            <input class="box date-box" type="text" aria-label="Date" />
                         </div>
                     </div>
                 </div>
@@ -327,20 +309,10 @@
         <script>
             const page = document.querySelector(".page");
             const cardTemplate = page.querySelector(".card");
-            const today = new Date();
-            const formattedDate = today.toLocaleDateString("en-GB", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-            });
 
             for (let cardNumber = 1; cardNumber < 4; cardNumber += 1) {
                 page.appendChild(cardTemplate.cloneNode(true));
             }
-
-            document.querySelectorAll(".date-box").forEach((dateInput) => {
-                dateInput.value = formattedDate;
-            });
         </script>
     </body>
 </html>

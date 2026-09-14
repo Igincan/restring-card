@@ -216,12 +216,18 @@
             @media print {
                 body {
                     background-color: white;
+                    display: block;
+                    margin: 0;
+                    padding: 0;
                 }
                 .toolbar {
                     display: none;
                 }
                 .page {
                     box-shadow: none;
+                    margin: 0 auto;
+                    transform: scale(0.94);
+                    transform-origin: top center;
                 }
                 @page {
                     size: A4 portrait;
